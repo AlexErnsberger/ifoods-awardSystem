@@ -1,0 +1,40 @@
+body {
+  font:14px/1.5 "Microsoft YaHei",tahoma,arial,sans-serif; 
+}
+
+/**
+ *清除滚动条影响
+ */
+html {
+  overflow-y: scroll; /* for IE8 */
+}
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+:root body {
+  position: absolute;
+}
+body {
+  width: 100vw;
+  overflow: hidden;
+} 
+/**
+ *滚动条设置
+ */
+::-webkit-scrollbar { /* 血槽宽度 */
+  width: 8px; height: 8px;
+}
+::-webkit-scrollbar-thumb { /* 拖动条 */
+  background-color: rgba(0,0,0,.3);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track { /* 背景槽 */
+  background-color: #ddd;
+  border-radius: 6px;
+} 
+@media only screen and (max-width:768px){
+  body{
+    font-size: 11px;
+  }
+}
