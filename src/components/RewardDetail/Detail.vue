@@ -1,32 +1,37 @@
 <template>
-<div id="reward-detail">
-  <transition name="slide-fade" mode="out-in">
-    <template v-if="rewardInfo">
-      <div class="container">
-        <div class="row">
-          <section class="col-md-4 col-xs-12 reward-count">
-            <h3>{{$t('home.detail.todayPoolMoney')}}</h3>
+<div class="ifood-home">
+  <!-- <transition name="slide-fade" mode="out-in"> -->
+  <template v-if="rewardInfo">
+    <div class="container">
+      <div class="home-mining">
+        <div class="mining-count">
+          <div class="mining-count-title">{{$t('home.detail.todayPoolMoney')}}</div>
+          <div class="mining-count-image">
             <img src="@/assets/img/map.png">
-            <h1>1000000<sub>{{$t('home.detail.unit')}}</sub></h1>
-          </section>
-          <section class="col-md-8 col-xs-12 reward-graphic">
-            <div class="row">
-              <div class="col-md-8 col-xs-12">
-                <h3>{{$t('home.detail.grapic.miningAward')}} | {{$t('home.detail.grapic.todayMiningAward')}}{{rewardInfo.todayMiningCount}}<sub>{{$t('home.detail.unit')}}</sub></h3>
-              </div>
-              <template v-if="undefined">
-                <div class="col-md-4 col-xs-12">
-                  <button class="btn btn-primary btn-sm" @click="checkRewardInfo">{{$t('home.detail.grapic.checkWeek')}}</button>
-                  <button class="btn btn-primary btn-sm" @click="checkRewardInfo(31)">{{$t('home.detail.grapic.checkMonth')}}</button>
-                </div>
-              </template>
             </div>
-            <div class="reward-chart">
+            <div class="mining-count-data">
+              <span class="mining-count-data-number">1000000</span>
+              <span class="mining-count-data-unit">{{$t('home.detail.unit')}}</span>
+            </div>
+          </div>
+          <div class="mining-award">
+            <div class="mining-award-title">
+              <!-- <span class="mining-award-title">{{$t('home.detail.grapic.miningAward')}} | {{$t('home.detail.grapic.todayMiningAward')}}{{rewardInfo.todayMiningCount}}</span> -->
+              <span class="mining-award-title">{{$t('home.detail.grapic.miningAward')}}</span>
+              <!-- <span class="mining-award-title">{{$t('home.detail.unit')}}</span> -->
+            </div>
+
+            <!-- <template v-if="undefined">
+                    <button class="btn btn-primary btn-sm" @click="checkRewardInfo">{{$t('home.detail.grapic.checkWeek')}}</button>
+                    <button class="btn btn-primary btn-sm" @click="checkRewardInfo(31)">{{$t('home.detail.grapic.checkMonth')}}</button>
+                </template> -->
+            <div class="mining-award-chart">
               <!-- <detail-echarts :xData="graphic_x" :yData="graphic_y"></detail-echarts> -->
               <detail-echarts></detail-echarts>
             </div>
-          </section>
+          </div>
         </div>
+
         <div class="row reward-info">
           <section class="col-md-3 col-xs-12">
             <h3>{{$t('home.detail.list.ystdPoolAward')}}</h3>
@@ -50,11 +55,11 @@
           </template>
         </div>
       </div>
-    </template>
-    <template v-else>
-      <no-data @try-again="reTry" :loading="loading" :disabled="loading"></no-data>
-    </template>
-  </transition>
+  </template>
+  <template v-else>
+    <no-data @try-again="reTry" :loading="loading" :disabled="loading"></no-data>
+  </template>
+  <!-- </transition> -->
 </div>
 </template>
 
@@ -126,8 +131,62 @@ export default {
 }
 </script>
 
-<style scoped>
-h1,
+<style lang="scss" scoped>
+.ifood-home {
+  .home-mining {
+    margin-top: 16px;
+    @include clearfix;
+
+    .mining-count {
+      float: left;
+      width: 38%;
+      height: 360px;
+      @include home-bg-style;
+
+      &-title {
+        @include home-module-title;
+      }
+
+      &-image {
+        img {
+          max-width: 100%;
+        }
+      }
+
+      &-data {
+        text-align: center;
+        color: #008000;
+
+        &-number {
+          font-size: 4rem;
+        }
+
+        &-unit {
+          font-size: 2rem;
+          padding: 0 1rem;
+        }
+      }
+    }
+
+    .mining-award {
+      float: right;
+      width: 60%;
+      height: 360px;
+      @include home-bg-style;
+
+      &-title {
+        @include home-module-title;
+      }
+
+      &-chart {
+        text-align: center;
+      }
+    }
+  }
+
+}
+
+/* h1,
 h2,
 h3 {
   margin: 0px;
@@ -227,7 +286,7 @@ h4 {
 
 .reward-graphic .reward-chart {
   padding: 0px 100px;
-}
+} */
 
 @media only screen and (max-width:768px) {
 

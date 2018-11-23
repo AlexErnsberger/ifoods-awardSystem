@@ -1,30 +1,31 @@
 <template>
-<header id="subHeader">
-  <template v-if="rewardInfo">
-    <div class="container">
-      <div class="row">
-        <template v-if="content==='detail'">
-          <div class="col-md-6 col-xs-12">
-            <p>{{$t('home.header.allAward')}}{{rewardInfo.totalReward}}<sub>{{$t('home.header.unit')}}</sub></p>
-            <p>{{$t('home.header.ystdAward')}}{{rewardInfo.miningCount}}<sub>{{$t('home.header.unit')}}</sub></p>
-          </div>
-          <div class="col-md-6 col-xs-12 ">
-            <a href="#" @click.prevent="$emit('viewRecord')">{{$t('home.header.page.checkRecord')}}</a>
-          </div>
-        </template>
-        <template v-if="content==='record'">
-          <div class="col-md-6 col-xs-12">
-            <a href="#" @click.prevent="$emit('goHome')">{{$t('home.header.page.homePage')}}</a>
-            <p>—— {{$t('home.header.page.checkRecord')}}</p>
-          </div>
-          <div class="col-md-6 col-xs-12 ">
-            <p>{{$t('home.header.allAward')}}{{rewardInfo.totalReward}}<sub>{{$t('home.header.unit')}}</sub></p>
-          </div>
+<div class="sub-header">
+  <div class="container">
+    <template v-if="content==='detail'">
+      <div class="sub-header-nav">
+        <a href="#" @click.prevent="$emit('viewRecord')">{{$t('home.header.page.checkRecord')}}</a>
+      </div>
+      <div class="sub-header-info">
+        <template v-if="rewardInfo">
+          <span >{{$t('home.header.allAward')}}{{rewardInfo.totalReward}}</span>
+          <span class="sub-header-info-unit">{{$t('home.header.unit')}}</span>
+          <span >{{$t('home.header.ystdAward')}}{{rewardInfo.miningCount}}</span>
+          <span class="sub-header-info-unit">{{$t('home.header.unit')}}</span>
         </template>
       </div>
-    </div>
-  </template>
-</header>
+    </template>
+    <template v-if="content==='record'">
+      <div class="sub-header-nav">
+        <a href="#" @click.prevent="$emit('goHome')">{{$t('home.header.page.homePage')}}</a>
+        <span> —— {{$t('home.header.page.checkRecord')}}</span>
+      </div>
+      <div class="sub-header-info">
+        <!-- <span >{{$t('home.header.allAward')}}{{rewardInfo.totalReward}}</span>
+          <span class="ifood-unit">{{$t('home.header.unit')}}</span> -->
+      </div>
+    </template>
+  </div>
+</div>
 </template>
 
 <script>
@@ -41,52 +42,29 @@ export default {
 }
 </script>
 
-<style scoped>
-#subHeader {
-  height: 50px;
-  font-size: 1.2em;
-  font-weight: 600;
-  color: #fff;
-  background: #666;
-  padding: 15px 0px;
-}
+<style lang="scss" scoped>
+.sub-header {
+  font-size: 1.4rem;
+  color: $subheader-font-color;
+  background: $subheader-bg-color;
+  @include fix-align($height: 50px);
 
-#subHeader p {
-  display: inline-block;
-  position: relative;
-}
-
-#subHeader p sub {
-  font-size: .6em;
-  position: absolute;
-  margin-left: 8px;
-  bottom: 10px;
-}
-
-#subHeader p+p {
-  margin-left: 5em;
-}
-
-#subHeader a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.row>div:nth-of-type(2) {
-  text-align: right;
-}
-
-@media only screen and (max-width:768px) {
-  header {
-    height: 5rem;
+  &-nav {
+    float: left;
   }
 
-  #subHeader {
-    height: 80px;
+  &-info {
+    float: right;
+
+    &-unit {
+      font-size: .6rem;
+      padding-right: 2rem;
+    }
   }
 
-  .row>div:nth-of-type(2) {
-    text-align: left;
+  a {
+    color: inherit;
+    @include removeDefault-a;
   }
 }
 </style>

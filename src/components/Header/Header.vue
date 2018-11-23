@@ -1,21 +1,26 @@
 <template>
-<header>
+<div class="ifoods-header">
   <div class="container">
-    <div class="row">
-      <a class="logo col-xs-12 col-md-6 text-left" href="#">
-          <img src="../../assets/img/logo.png">
-          <h2>{{$t('header.title')}}</h2>
-        </a>
-      <transition name="slide-fade" mode="out-in">
-        <template v-if="isLogin">
-          <div class="userinfo col-xs-12 col-md-6">
-            <p>{{userInfo}} <a class="" href="#" @click.prevent="logout">{{$t('header.logout')}}</a></p>
-          </div>
-        </template>
-      </transition>
+    <div class="header-logo ">
+      <img src="../../assets/img/logo.png">
+      <span>{{$t('header.title')}}</span>
     </div>
+    <template v-if="isLogin">
+      <div class="header-nav">
+        <div class="nav-user dropdown">
+          <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <i class="iconfont icon-user"></i>
+            <!-- <span>{{userInfo}}</span> -->
+          </div>
+          <ul class="dropdown-menu">
+            <li><a href="#" @click.prevent="logout">{{$t('header.logout')}}</a></li>
+          </ul>
+          <!-- <span @click.prevent="logout">{{$t('header.logout')}}</span> -->
+        </div>
+      </div>
+    </template>
   </div>
-</header>
+</div>
 </template>
 
 <script>
@@ -44,65 +49,37 @@ export default {
 }
 </script>
 
-<style scoped>
-header {
+<style lang="scss" scoped>
+.ifoods-header {
+  font-size: 2rem;
   height: 80px;
-  background: #f2f2f2;
-}
+  padding-top: 20px;
+  background: $header-bg-color;
+  color: $header-font-color;
 
-header .logo,
-header .userinfo {
-  padding: 20px 0px;
-}
+  .header-logo {
+    float: left;
 
-header .logo>img {
-  width: 86px;
-  height: 40px;
-}
+    img {
+      width: 86px;
+      height: 40px;
+    }
 
-header .logo>h2 {
-  display: inline-block;
-  margin: 0;
-  padding: 0 .5em;
-  vertical-align: middle;
-  font-weight: 600;
-  font-size: 2em;
-  font-style: normal;
-  color: #666;
-}
-
-header .userinfo {
-  text-align: right;
-}
-
-header .userinfo p {
-  display: inline-block;
-  font-weight: 600;
-  font-size: 1.5em;
-  font-style: normal;
-  color: #666;
-  margin: 0;
-  padding: 0;
-  line-height: 40px;
-}
-
-header .userinfo p a {
-  text-decoration: none;
-  color: inherit;
-}
-
-@media only screen and (max-width:768px) {
-  header {
-    height: 8rem;
+    span {
+      font-size: inherit;
+      color: inherit;
+      vertical-align: middle;
+    }
   }
 
-  header .userinfo {
-    text-align: center;
-  }
+  .header-nav {
+    float: right;
 
-  header .logo,
-  header .userinfo {
-    padding: 0px;
+    .nav-user {
+      i {
+        font-size: 3rem;
+      }
+    }
   }
 }
 </style>

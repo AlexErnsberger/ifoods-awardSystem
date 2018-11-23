@@ -168,8 +168,6 @@ export default {
 <style scoped>
 #login-block {
   background: url('../assets/img/background.jpg') no-repeat;
-  background-position: 0px 0px;
-  background-size: 100% 100%;
   width: 100%;
   height: 100%;
   position: fixed;

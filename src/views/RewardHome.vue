@@ -1,10 +1,10 @@
 <template>
-<main id="home-page">
+<div id="ifoods-home-page">
   <sub-header @viewRecord="checkAwardRecord" @goHome="goAwardHome"></sub-header>
-  <transition name="slide-fade" mode="out-in">
+  <!-- <transition name="slide-fade" mode="out-in"> -->
     <router-view></router-view>
-  </transition>
-</main>
+  <!-- </transition> -->
+</div>
 </template>
 
 <script>
