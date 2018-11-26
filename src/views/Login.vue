@@ -37,7 +37,7 @@
                   <span>{{$t('login.loginbtn')}}</span>
                 </button> -->
                   <loading-button type='submit' :disabled="loading" :loading="loading" ref="loginbtn">{{$t('login.loginbtn')}}</loading-button>
-                  <a :href="_Global.DOWNLOAD_URL._APP" target="_blank">{{$t('login.notice')}}</a>
+                  <a href="https://www.ifoodschain.com/#/download/" target="_blank">{{$t('login.notice')}}</a>
                 </section>
           </fieldset>
         </form>
@@ -51,14 +51,12 @@
 import LoadingButton from '@/components/Base/LoadingButton.vue'
 import ErrorRemind from '@/components/Login/ErrorRemind.vue'
 import Input from '@/components/Login/Input.vue'
-import Mix from '@/mixins'
 export default {
   components: {
     LoadingButton,
     ErrorRemind,
     Input
   },
-  mixins: [Mix],
   data () {
     return {
       identifyCode: '',
@@ -101,7 +99,7 @@ export default {
      */
     testify () {
       if (!this.userPhoneNum || !this.password) {
-        this.errorMsg = '请输入账号密码'
+        this.errorMsg = this.$t('loginError.empty')
         this.identifyCode = ''
         return false
       }

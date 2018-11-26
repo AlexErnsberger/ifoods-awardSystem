@@ -3,25 +3,25 @@
   <div class="container">
     <template v-if="content==='detail'">
       <div class="sub-header-nav">
-        <a href="#" @click.prevent="$emit('viewRecord')">{{$t('home.header.page.checkRecord')}}</a>
+        <a href="#" @click.prevent="$emit('viewRecord')">{{$t('subHeader.page.checkRecord')}}</a>
       </div>
       <div class="sub-header-info">
         <template v-if="rewardInfo">
-          <span >{{$t('home.header.allAward')}}{{rewardInfo.totalReward}}</span>
-          <span class="sub-header-info-unit">{{$t('home.header.unit')}}</span>
-          <span >{{$t('home.header.ystdAward')}}{{rewardInfo.miningCount}}</span>
-          <span class="sub-header-info-unit">{{$t('home.header.unit')}}</span>
+          <span >{{$t('subHeader.allAward')}}{{rewardInfo.totalReward}}</span>
+          <span class="sub-header-info-unit">{{$t('unit')}}</span>
+          <span >{{$t('subHeader.ystdAward')}}{{rewardInfo.miningCount}}</span>
+          <span class="sub-header-info-unit">{{$t('unit')}}</span>
         </template>
       </div>
     </template>
     <template v-if="content==='record'">
       <div class="sub-header-nav">
-        <a href="#" @click.prevent="$emit('goHome')">{{$t('home.header.page.homePage')}}</a>
-        <span> —— {{$t('home.header.page.checkRecord')}}</span>
+        <a href="#" @click.prevent="$emit('goHome')">{{$t('subHeader.page.homePage')}}</a>
+        <span> —— {{$t('subHeader.page.checkRecord')}}</span>
       </div>
       <div class="sub-header-info">
-        <!-- <span >{{$t('home.header.allAward')}}{{rewardInfo.totalReward}}</span>
-          <span class="ifood-unit">{{$t('home.header.unit')}}</span> -->
+        <!-- <span >{{$t('subHeader.allAward')}}{{rewardInfo.totalReward}}</span>
+          <span class="ifood-unit">{{$t('subHeader.unit')}}</span> -->
       </div>
     </template>
   </div>

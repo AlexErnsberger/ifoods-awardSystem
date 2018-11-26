@@ -5,11 +5,11 @@
       <i class="iconfont icon-error"></i>
     </div>
     <div class="home-error-msg">
-      {{$t('home.error.msg')}}
+      {{$t('homeError.msg')}}
     </div>
     <div class="home-error-btn">
       <!-- <button class="btn btn-primary" @click="reGet">刷新</button> -->
-      <loading-button :loading="loading" :disabled="disabled" @click="reGet" style="width:120px;">{{$t('home.error.refresh')}}</loading-button>
+      <loading-button :loading="loading" :disabled="disabled" @click="reGet" style="width:120px;">{{$t('homeError.refresh')}}</loading-button>
     </div>
   </div>
 </div>

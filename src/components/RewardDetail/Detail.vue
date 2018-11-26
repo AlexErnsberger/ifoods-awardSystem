@@ -5,25 +5,25 @@
     <div class="container">
       <div class="home-mining">
         <div class="mining-count home-module">
-          <div class="home-module-title">{{$t('home.detail.todayPoolMoney')}}</div>
+          <div class="home-module-title">{{$t('homeDetail.todayPoolMoney')}}</div>
           <div class="mining-count-image">
             <img src="@/assets/img/map.png">
             </div>
             <div class="mining-count-data">
               <span class="mining-count-data-number">1000000</span>
-              <span class="mining-count-data-unit">{{$t('home.detail.unit')}}</span>
+              <span class="mining-count-data-unit">{{$t('unit')}}</span>
             </div>
           </div>
           <div class="mining-award home-module">
             <div class="home-module-title">
-              <!-- <span class="mining-award-title">{{$t('home.detail.grapic.miningAward')}} | {{$t('home.detail.grapic.todayMiningAward')}}{{rewardInfo.todayMiningCount}}</span> -->
-              {{$t('home.detail.grapic.miningAward')}}
-              <!-- <span class="mining-award-title">{{$t('home.detail.unit')}}</span> -->
+              <!-- <span class="mining-award-title">{{$t('homeDetail.grapic.miningAward')}} | {{$t('homeDetail.grapic.todayMiningAward')}}{{rewardInfo.todayMiningCount}}</span> -->
+              {{$t('homeDetail.grapic.miningAward')}}
+              <!-- <span class="mining-award-title">{{$t('unit')}}</span> -->
             </div>
 
             <!-- <template v-if="undefined">
-                    <button class="btn btn-primary btn-sm" @click="checkRewardInfo">{{$t('home.detail.grapic.checkWeek')}}</button>
-                    <button class="btn btn-primary btn-sm" @click="checkRewardInfo(31)">{{$t('home.detail.grapic.checkMonth')}}</button>
+                    <button class="btn btn-primary btn-sm" @click="checkRewardInfo">{{$t('homeDetail.grapic.checkWeek')}}</button>
+                    <button class="btn btn-primary btn-sm" @click="checkRewardInfo(31)">{{$t('homeDetail.grapic.checkMonth')}}</button>
                 </template> -->
             <div class="mining-award-chart">
               <!-- <detail-echarts :xData="graphic_x" :yData="graphic_y"></detail-echarts> -->
@@ -34,38 +34,38 @@
 
         <div class="home-award">
           <div class="home-module home-award-module ">
-            <div class="home-module-title">{{$t('home.detail.list.ystdPoolAward')}}</div>
+            <div class="home-module-title">{{$t('homeDetail.ystdPoolAward')}}</div>
             <div class="home-award-data">
               <span><strong>+1200</strong></span>
-              <span class="home-award-unit">{{$t('home.detail.unit')}}</span>
+              <span class="home-award-unit">{{$t('unit')}}</span>
             </div>
           </div>
           <div class="home-module home-award-module ">
-            <div class="home-module-title">{{$t('home.detail.list.suprobe.inviteCount')}}</div>
+            <div class="home-module-title">{{$t('homeDetail.suprobe.inviteCount')}}</div>
             <div class="home-award-data">
-              <span>{{$t('home.detail.list.suprobe.invited')}}<strong>6{{$t('home.detail.list.suprobe.unit')}}</strong>{{$t('home.detail.list.suprobe.equip')}}</span>
+              <span>{{$t('homeDetail.suprobe.invited')}}<strong>6{{$t('homeDetail.suprobe.unit')}}</strong>{{$t('homeDetail.suprobe.equip')}}</span>
             </div>
             <div class="home-award-data">
-              <span>{{$t('home.detail.list.suprobe.level2Count')}}<strong>12{{$t('home.detail.list.suprobe.unit')}}</strong></span>
+              <span>{{$t('homeDetail.suprobe.level2Count')}}<strong>12{{$t('homeDetail.suprobe.unit')}}</strong></span>
             </div>
           </div>
           <div class="home-module home-award-module ">
-            <div class="home-module-title">{{$t('home.detail.list.invitedAward.ystd')}}</div>
+            <div class="home-module-title">{{$t('homeDetail.invitedAward.ystd')}}</div>
             <div class="home-award-data">
-              <span>{{$t('home.detail.list.invitedAward.suprobe')}}<strong>+550</strong></span>
-              <span class="home-award-unit">{{$t('home.detail.unit')}}</span>
+              <span>{{$t('homeDetail.invitedAward.suprobe')}}<strong>+550</strong></span>
+              <span class="home-award-unit">{{$t('unit')}}</span>
             </div>
             <div class="home-award-data">
-              <span>{{$t('home.detail.list.invitedAward.level2')}}<strong>+750</strong></span>
-              <span class="home-award-unit">{{$t('home.detail.unit')}}</span>
+              <span>{{$t('homeDetail.invitedAward.level2')}}<strong>+750</strong></span>
+              <span class="home-award-unit">{{$t('unit')}}</span>
             </div>
           </div>
           <template v-if='rewardInfo.isPartner'>
             <div class="home-module home-award-module ">
-              <div class="home-module-title">{{$t('home.detail.list.ystdPartnerAward')}}</div>
+              <div class="home-module-title">{{$t('homeDetail.ystdPartnerAward')}}</div>
               <div class="home-award-data">
                 <span>+6200</span>
-                <span class="home-award-unit">{{$t('home.detail.unit')}}</span>
+                <span class="home-award-unit">{{$t('unit')}}</span>
               </div>
             </div>
           </template>
@@ -82,13 +82,11 @@
 <script>
 import DetailEcharts from './DetailEcharts.vue'
 import NoData from '@/components/Error/NoData.vue'
-import Mix from '@/mixins'
 export default {
   components: {
     DetailEcharts,
     NoData
   },
-  mixins: [Mix],
   data () {
     return {
       graphicData: null,

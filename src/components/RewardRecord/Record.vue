@@ -6,9 +6,9 @@
       <table class="table  table-bordered table-hover" >
         <thead>
           <tr>
-            <th scope="col">{{$t('home.record.table.awardType')}}</th>
-            <th scope="col">{{$t('home.record.table.awardTime')}}</th>
-            <th scope="col">{{$t('home.record.table.awardMoney')}}</th>
+            <th scope="col">{{$t('homeRecord.table.awardType')}}</th>
+            <th scope="col">{{$t('homeRecord.table.awardTime')}}</th>
+            <th scope="col">{{$t('homeRecord.table.awardMoney')}}</th>
           </tr>
         </thead>
         <tbody>
@@ -74,21 +74,21 @@ export default {
     typeFormatter (value) {
       switch (value) {
         case 1:
-          return this._Global.REWARD_TYPE._FIRST
+          return this.$t('awardType.first')
         case 2:
-          return this._Global.REWARD_TYPE._SECOND
+          return this.$t('awardType.second')
         case 3:
-          return this._Global.REWARD_TYPE._THIRD
+          return this.$t('awardType.third')
         case 4:
-          return this._Global.REWARD_TYPE._FOURTH
+          return this.$t('awardType.fourth')
         case 5:
-          return this._Global.REWARD_TYPE._FIFTH
+          return this.$t('awardType.fifth')
         case 6:
-          return this._Global.REWARD_TYPE._SIXTH
+          return this.$t('awardType.sixth')
         case 7:
-          return this._Global.REWARD_TYPE._SEVENTH
+          return this.$t('awardType.seventh')
         default:
-          return this._Global.REWARD_TYPE._DEFAULT
+          return this.$t('awardType.default')
       }
     },
     dateFormatter (value) {
