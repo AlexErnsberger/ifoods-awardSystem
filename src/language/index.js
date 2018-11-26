@@ -6,8 +6,8 @@ import store from '@/store'
 Vue.use(VueI18n)
 
 export default new VueI18n({
-  locale: store.getters.getLanguage || 'CH',
+  locale: store.getters.getLanguage || 'zh',
   messages: {
-    CH: Chinese
+    zh: Chinese
   }
 })

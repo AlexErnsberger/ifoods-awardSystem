@@ -2,11 +2,11 @@
 <nav>
   <ul class="pagination ">
     <li :class="{'disabled': current == 1}"><a href="#" @click="setCurrent(current - 1)"> « </a></li>
-    <li :class="{'disabled': current == 1}"><a href="#" @click="setCurrent(1)"> {{$t('record.sep.homePage')}} </a></li>
+    <li :class="{'disabled': current == 1}"><a href="#" @click="setCurrent(1)"> {{$t('home.record.sep.homePage')}} </a></li>
     <li v-for="(p,index) in grouplist" :class="{'active': current == p.val}" :key="index">
       <a href="#" @click="setCurrent(p.val)"> {{ p.text }} </a>
     </li>
-    <li :class="{'disabled': current == page}"><a href="#" @click="setCurrent(page)"> {{$t('record.sep.endPage')}} </a></li>
+    <li :class="{'disabled': current == page}"><a href="#" @click="setCurrent(page)"> {{$t('home.record.sep.endPage')}} </a></li>
     <li :class="{'disabled': current == page}"><a href="#" @click="setCurrent(current + 1)"> »</a></li>
   </ul>
 </nav>

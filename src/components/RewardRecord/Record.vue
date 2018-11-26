@@ -1,13 +1,14 @@
 <template>
 <section id="reward-table">
-  <template v-if="rewardRecords && rewardRecords.length>0">
+  <!-- <template v-if="rewardRecords && rewardRecords.length>0"> -->
+  <template v-if="true">
     <div class="container">
-      <table class="table  table-bordered table-hover">
+      <table class="table  table-bordered table-hover" >
         <thead class="thead-dark">
           <tr>
-            <th scope="col">{{$t('record.table.awardType')}}</th>
-            <th scope="col">{{$t('record.table.awardTime')}}</th>
-            <th scope="col">{{$t('record.table.awardMoney')}}</th>
+            <th scope="col">{{$t('home.record.table.awardType')}}</th>
+            <th scope="col">{{$t('home.record.table.awardTime')}}</th>
+            <th scope="col">{{$t('home.record.table.awardMoney')}}</th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +19,8 @@
           </tr>
         </tbody>
       </table>
-      <template v-if="total > 10">
+      <!-- <template v-if="total > 10"> -->
+      <template v-if="true">
         <page-sep :total="total" :current-page='current' @pagechange="pagechange"></page-sep>
       </template>
     </div>
@@ -112,13 +114,16 @@ export default {
 }
 </script>
 
-<style scoped>
-.container {
-  padding: 20px 5px;
+<style lang="scss" scoped>
+table{
+  margin-top: 20px;
+  border-collapse: separate;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 2px 6px, rgba(0, 0, 0, 0.24) 0 1px 2px;
 }
 
-table thead {
+/* table thead {
   color: #fff;
   background-color: #666;
-}
+} */
 </style>

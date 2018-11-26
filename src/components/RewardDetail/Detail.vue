@@ -1,23 +1,23 @@
 <template>
-<div class="ifood-home">
+<div id="ifood-home">
   <!-- <transition name="slide-fade" mode="out-in"> -->
   <template v-if="rewardInfo">
     <div class="container">
       <div class="home-mining">
-        <div class="mining-count">
-          <div class="mining-count-title">{{$t('home.detail.todayPoolMoney')}}</div>
-          <div class="mining-count-image">
-            <img src="@/assets/img/map.png">
+        <div class="mining-count home-module">
+          <div class="home-module-title">{{$t('home.detail.todayPoolMoney')}}</div>
+            <div class="mining-count-image">
+              <img src="@/assets/img/map.png">
             </div>
             <div class="mining-count-data">
               <span class="mining-count-data-number">1000000</span>
               <span class="mining-count-data-unit">{{$t('home.detail.unit')}}</span>
             </div>
           </div>
-          <div class="mining-award">
-            <div class="mining-award-title">
+          <div class="mining-award home-module">
+            <div class="home-module-title">
               <!-- <span class="mining-award-title">{{$t('home.detail.grapic.miningAward')}} | {{$t('home.detail.grapic.todayMiningAward')}}{{rewardInfo.todayMiningCount}}</span> -->
-              <span class="mining-award-title">{{$t('home.detail.grapic.miningAward')}}</span>
+              {{$t('home.detail.grapic.miningAward')}}
               <!-- <span class="mining-award-title">{{$t('home.detail.unit')}}</span> -->
             </div>
 
@@ -32,26 +32,42 @@
           </div>
         </div>
 
-        <div class="row reward-info">
-          <section class="col-md-3 col-xs-12">
-            <h3>{{$t('home.detail.list.ystdPoolAward')}}</h3>
-            <h2>+1200<sub>{{$t('home.detail.unit')}}</sub></h2>
-          </section>
-          <section class="col-md-3 col-xs-12">
-            <h3>{{$t('home.detail.list.suprobe.inviteCount')}}</h3>
-            <h4>{{$t('home.detail.list.suprobe.invited')}}<strong>6{{$t('home.detail.list.suprobe.unit')}}</strong>{{$t('home.detail.list.suprobe.equip')}}</h4>
-            <h4>{{$t('home.detail.list.suprobe.level2Count')}}<strong>12{{$t('home.detail.list.suprobe.unit')}}</strong></h4>
-          </section>
-          <section class="col-md-3 col-xs-12">
-            <h3>{{$t('home.detail.list.invitedAward.ystd')}}</h3>
-            <h4>{{$t('home.detail.list.invitedAward.suprobe')}}<strong>+550</strong><sub>{{$t('home.detail.unit')}}</sub></h4>
-            <h4>{{$t('home.detail.list.invitedAward.level2')}}<strong>+750</strong><sub>{{$t('home.detail.unit')}}</sub></h4>
-          </section>
+        <div class="home-award">
+          <div class="home-module home-award-module ">
+            <div class="home-module-title">{{$t('home.detail.list.ystdPoolAward')}}</div>
+            <div class="home-award-data">
+              <span><strong>+1200</strong></span>
+              <span class="home-award-unit">{{$t('home.detail.unit')}}</span>
+            </div>
+          </div>
+          <div class="home-module home-award-module ">
+            <div class="home-module-title">{{$t('home.detail.list.suprobe.inviteCount')}}</div>
+            <div class="home-award-data">
+              <span>{{$t('home.detail.list.suprobe.invited')}}<strong>6{{$t('home.detail.list.suprobe.unit')}}</strong>{{$t('home.detail.list.suprobe.equip')}}</span>
+            </div>
+            <div class="home-award-data">
+              <span>{{$t('home.detail.list.suprobe.level2Count')}}<strong>12{{$t('home.detail.list.suprobe.unit')}}</strong></span>
+            </div>
+          </div>
+          <div class="home-module home-award-module ">
+            <div class="home-module-title">{{$t('home.detail.list.invitedAward.ystd')}}</div>
+            <div class="home-award-data">
+              <span>{{$t('home.detail.list.invitedAward.suprobe')}}<strong>+550</strong></span>
+              <span class="home-award-unit">{{$t('home.detail.unit')}}</span>
+            </div>
+            <div class="home-award-data">
+              <span>{{$t('home.detail.list.invitedAward.level2')}}<strong>+750</strong></span>
+              <span class="home-award-unit">{{$t('home.detail.unit')}}</span>
+            </div>
+          </div>
           <template v-if='rewardInfo.isPartner'>
-            <section class="col-md-3 col-xs-12">
-              <h3>{{$t('home.detail.list.ystdPartnerAward')}}</h3>
-              <h2>+6200<sub>{{$t('home.detail.unit')}}</sub></h2>
-            </section>
+            <div class="home-module home-award-module ">
+              <div class="home-module-title">{{$t('home.detail.list.ystdPartnerAward')}}</div>
+              <div class="home-award-data">
+                <span>+6200</span>
+                <span class="home-award-unit">{{$t('home.detail.unit')}}</span>
+              </div>
+            </div>
           </template>
         </div>
       </div>
@@ -132,191 +148,84 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ifood-home {
-  .home-mining {
-    margin-top: 16px;
-    @include clearfix;
+.home-mining {
+  margin-top: 20px;
+  @include clearfix;
 
-    .mining-count {
-      float: left;
-      width: 38%;
-      height: 360px;
-      @include home-bg-style;
+  .mining-count {
+    float: left;
+    width: 435px;height: 360px;
 
-      &-title {
-        @include home-module-title;
-      }
-
-      &-image {
-        img {
-          max-width: 100%;
-        }
-      }
-
-      &-data {
-        text-align: center;
-        color: #008000;
-
-        &-number {
-          font-size: 4rem;
-        }
-
-        &-unit {
-          font-size: 2rem;
-          padding: 0 1rem;
-        }
+    &-image {
+      img {
+        max-width: 100%;
       }
     }
 
-    .mining-award {
-      float: right;
-      width: 60%;
-      height: 360px;
-      @include home-bg-style;
+    &-data {
+      text-align: center;
+      color: #008000;
 
-      &-title {
-        @include home-module-title;
+      &-number {
+        font-size: 4rem;
       }
 
-      &-chart {
-        text-align: center;
+      &-unit {
+        font-size: 2rem;
+        padding: 0 1rem;
       }
     }
   }
 
-}
+  .mining-award {
+    float: right;
+    width: 685px; height: 360px;
 
-/* h1,
-h2,
-h3 {
-  margin: 0px;
-  padding: 15px;
-}
-
-.container>.row {
-  margin: 10px 0 0 0;
-}
-
-section {
-  padding: 10px;
-  height: 360px;
-}
-
-.reward-count,
-.reward-graphic,
-.reward-info section {
-  background-color: #f2f2f2;
-}
-
-section+section {
-  border-left: 10px solid #fff;
-}
-
-.row h3 {
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1.4em;
-  position: relative;
-}
-
-.row h3 sub {
-  position: absolute;
-  bottom: 25px;
-  margin-left: 8px;
-}
-
-.reward-count img {
-  max-width: 100%;
-}
-
-.reward-count h1 {
-  text-align: center;
-  position: relative;
-  color: #008000;
-}
-
-.reward-count h1 sub {
-  position: absolute;
-  font-size: .5em;
-  font-weight: 600;
-  bottom: 25px;
-  margin-left: 10px;
-}
-
-.reward-info section {
-  height: 180px;
-}
-
-.reward-info h2 {
-  text-align: center;
-  padding: 30px 0 30px 0;
-  font-weight: 600;
-}
-
-.reward-info h4 {
-  text-align: left;
-  padding: 10px 0 10px 0;
-}
-
-.reward-info h2,
-h4 {
-  color: black;
-  position: relative;
-}
-
-.reward-info h2 sub {
-  position: absolute;
-  bottom: 45%;
-  font-size: .6em;
-  margin-left: 10px;
-}
-
-.reward-info h4 sub {
-  font-weight: 600;
-  font-size: .8em;
-  position: absolute;
-  bottom: 50%;
-  margin-left: 5px;
-}
-
-.reward-info h4 strong {
-  font-size: 1.4em;
-  line-height: .1em;
-}
-
-.reward-graphic .reward-chart {
-  padding: 0px 100px;
-} */
-
-@media only screen and (max-width:768px) {
-
-  h1,
-  h2,
-  h3 {
-    padding: 15px 0px;
-  }
-
-  .container {
-    padding: 0px;
-  }
-
-  .container>.row {
-    margin: 0px;
-    background-color: #fff;
-  }
-
-  .container .row section {
-    margin: 10px 0px;
-    border: none;
-    background-color: #f2f2f2;
-  }
-
-  .reward-graphic .reward-chart {
-    padding: 10px 10px;
-  }
-
-  .reward-graphic .row {
-    margin-right: 0px;
+    &-chart {
+      text-align: center;
+    }
   }
 }
 </style>
+
+<style lang="scss" scoped>
+.home-award{
+  margin-top: 20px;
+  @include clearfix;
+
+  &-module {
+    float: left;
+    width: 270px; height: 180px;
+    &+& {
+      margin-left: 20px;
+    }
+  }
+
+  &-data {
+    margin-top:10px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+
+  &-unit{
+    font-size: .9rem;
+    padding: 0 1rem;
+  }
+}
+</style>
+
+<style scoped>
+.home-module{
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 2px 6px, rgba(0, 0, 0, 0.24) 0 1px 2px;
+}
+
+.home-module-title{
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+</style>
+
+
