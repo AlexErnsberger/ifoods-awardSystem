@@ -8,6 +8,7 @@ export default{
         if (info.code === this._Api.RETURN_CODE._SUCCESS && info.msg === this._Api.RETURN_MSG._SUCCESS) {
           this.$store.commit('setRewardInfo', info.data)
         }
+        this.$store.state.loading = false
       }).catch((err) => {
         console.log(err)
       })

@@ -24,7 +24,7 @@
                     <identify-code :identifyCode="identifyCode"></identify-code>
                   </div>
                   <div class="col-md-4">
-                    <a href="#" @click="refreshCode">{{$t('login.refreshVCode')}}</a>
+                    <a href="#" @click="">{{$t('login.refreshVCode')}}</a>
                   </div>
                 </div>
               </section> -->
@@ -36,7 +36,7 @@
                   <img src="@/assets/img/loading.png" :class="['load-loop',{show:loading}]">
                   <span>{{$t('login.loginbtn')}}</span>
                 </button> -->
-                  <loading-button type='submit' :disabled="loading" :loading="loading" ref="loginbtn">{{loginMsg}}</loading-button>
+                  <loading-button type='submit' :disabled="loading" :loading="loading" ref="loginbtn">{{$t('login.loginbtn')}}</loading-button>
                   <a :href="_Global.DOWNLOAD_URL._APP" target="_blank">{{$t('login.notice')}}</a>
                 </section>
           </fieldset>
@@ -67,8 +67,7 @@ export default {
       encodePassword: null,
       vcode: null,
       errorMsg: null,
-      loading: false,
-      loginMsg: this.$t('login.loginbtn')
+      loading: false
     }
   },
   methods: {
@@ -76,47 +75,25 @@ export default {
     submit () {
       if (!this.testify()) return
       this.loading = true
-      this.encryption()
       this.testifyUserInfo()
-    },
-    // 密码加密
-    encryption () {
-      let sha256 = require('js-sha256').sha256
-      this.encodePassword = sha256(this.password)
     },
     // 账号密码验证
     testifyUserInfo () {
-      return this.$http.post(this._Api.REQUEST_URL._LOGIN, {
+      this._http.login(this, {
         phone: this.userPhoneNum,
-        password: this.encodePassword
-      }).then((res) => {
-        let resInfo = res.data
-        if (resInfo.code === this._Api.RETURN_CODE._SUCCESS && resInfo.msg === this._Api.RETURN_MSG._SUCCESS) {
-          this.loginMsg = this.$t('login.loginSuccess')
-          // vuex存储
-          this.$store.commit('setUserInfo', this.userPhoneNum)
-          this.$store.commit('setToken', res.headers.ifession)
-          // 获取奖励数据
-          // this.getRewardInfo().then((res) => {
-          //   this.loading = false
-          //   this.$store.commit('setLogin', true)
-          //   // 路由跳转
-          //   this.$router.push(this._RC._HOME_DEFAULT)
-          // })
-          // 路由跳转
-          setTimeout(() => {
-            this.loading = false
-            this.$store.commit('setLogin', true)
-            this.$router.push(this._RC._HOME_DEFAULT)
-          }, 1000)
-        } else {
-          this.errorMsg = resInfo.msg
-          this.identifyCode = ''
-          this.loading = false
-          this.refreshCode()
-        }
-      }).catch((err) => {
-        console.log(err)
+        password: require('js-sha256').sha256(this.password)
+      }, (res) => {
+        // vuex存储
+        this.$store.commit('setUserInfo', this.userPhoneNum)
+        this.$store.commit('setToken', res.headers.ifession)
+        // 路由跳转
+        this.loading = false
+        this.$store.commit('setLogin', true)
+        this.$router.push(this._RC._HOME_DEFAULT)
+      }, (res) => {
+        this.errorMsg = res.data.msg
+        this.identifyCode = ''
+        this.loading = false
       })
     },
     /**
@@ -131,7 +108,6 @@ export default {
       // if(this.vcode !== this.identifyCode) {
       //   this.errorMsg = '验证码错误，请重新输入'
       //   this.identifyCode = ''
-      //   this.refreshCode()
       //   return false
       // }
       return true

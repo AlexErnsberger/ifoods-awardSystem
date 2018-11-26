@@ -27,14 +27,9 @@
 export default {
   methods: {
     logout () {
-      this.$http.post(this._Api.REQUEST_URL._LOGOUT).then((res) => {
-        let data = res.data
-        if (data.code === this._Api.RETURN_CODE._SUCCESS) {
-          this.$store.commit('setUserInfo', null)
-          this.$router.push(this._RC._ROOT)
-        }
-      }).catch((err) => {
-        console.log(err)
+      this._http.logout(this, (res) => {
+        this.$store.commit('setUserInfo', null)
+        this.$router.push(this._RC._ROOT)
       })
     }
   },

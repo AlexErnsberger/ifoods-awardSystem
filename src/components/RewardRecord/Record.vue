@@ -53,16 +53,10 @@ export default {
   },
   methods: {
     getAllRewards () {
-      return this.$http.post(this._Api.REQUEST_URL._GET_RECORDS_ALL, {
-        pageNum: this.current
-      }).then((res) => {
+      this._http.getAllRewards(this, {pageNum: this.current}, (res) => {
         let data = res.data
-        if (data.code === this._Api.RETURN_CODE._SUCCESS) {
-          this.rewardRecords = data.data.list
-          this.total = data.data.totalNum
-        }
-      }).catch((err) => {
-        console.log(err)
+        this.rewardRecords = data.data.list
+        this.total = data.data.totalNum
       })
     },
     pagechange (currentPage) {

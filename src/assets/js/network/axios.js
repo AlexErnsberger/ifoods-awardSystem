@@ -1,11 +1,11 @@
 import axios from 'axios'
-import Api from '@/constant/api.js'
+import Api from '../../../../static/config.js'
 import Qs from 'qs'
 import store from '@/store'
 
 let instance = axios.create({
   method: 'post',
-  baseURL: Api.baseURL,
+  baseURL: Api.baseUrl,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   },
@@ -24,7 +24,6 @@ instance.interceptors.request.use((config) => {
   return Promise.reject(error)
 })
 
-instance.defaults.baseURL = Api.BASE_URL
 instance.defaults.retry = 4
 instance.defaults.retryDelay = 1000
 

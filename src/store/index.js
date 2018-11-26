@@ -16,7 +16,8 @@ export default new Vuex.Store({
     isLogin: false,
     rewardInfo: null,
     language: '',
-    subHeaderFlag: ROUTER_PATH._HOME_CHILD_DETAIL
+    subHeaderFlag: ROUTER_PATH._HOME_CHILD_DETAIL,
+    loading: false
   },
   getters: {
     isLogin (state) {

@@ -4,7 +4,7 @@ export default {
     logout: '退出登陆'
   },
   login: {
-    title: '超级探针用户登陆',
+    title: '超级探针用户登录',
     phoneNum: '手机号',
     password: '密码',
     vertifyCode: '验证码',

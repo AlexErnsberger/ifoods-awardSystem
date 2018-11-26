@@ -2,14 +2,20 @@
 <div id="ifoods-home-page">
   <sub-header @viewRecord="checkAwardRecord" @goHome="goAwardHome"></sub-header>
   <router-view></router-view>
+  <loading-page v-if="$store.state.loading"></loading-page>
 </div>
 </template>
 
 <script>
 import SubHeader from '@/components/Header/SubHeader.vue'
+import LoadingPage from '@/components/Base/LoadingPage.vue'
 export default {
   components: {
-    SubHeader
+    SubHeader,
+    LoadingPage
+  },
+  mounted () {
+    this.$store.state.loading = true
   },
   methods: {
     checkAwardRecord () {
@@ -26,6 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 #ifoods-home-page{
+  position: relative;
   // background: $common-bg-color;
   // height: 700px;
 }

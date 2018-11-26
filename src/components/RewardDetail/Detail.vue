@@ -105,19 +105,23 @@ export default {
     }
   },
   mounted () {
+    this.getRewardInfo()
     this.getDailyReward()
   },
   methods: {
-    getDailyReward () {
-      this.$http.post(this._Api.REQUEST_URL._GET_RECORDS_WEEK).then((res) => {
+    getRewardInfo () {
+      this._http.getRewardInfo(this, (res) => {
         let data = res.data
-        if (data.code === this._Api.RETURN_CODE._SUCCESS && data.msg === this._Api.RETURN_MSG._SUCCESS) {
-          if (data.data.length > 0) {
-            this.graphicData = data.data
-          }
+        this.$store.commit('setRewardInfo', data.data)
+        this.$store.state.loading = false
+      })
+    },
+    getDailyReward () {
+      this._http.getDailyReward(this, (res) => {
+        let data = res.data
+        if (res.data.data.length > 0) {
+          this.graphicData = data.data
         }
-      }).catch((err) => {
-        console.log(err)
       })
     },
     formatterTimes () {
