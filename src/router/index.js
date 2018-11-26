@@ -17,7 +17,7 @@ var router = new Router({
       component: Login,
       alias: RC.ROUTER_PATH._LOGIN,
       meta: {
-        title: RC.PAGE_TITLE._LOGIN
+        title: '探针检测奖励查询-登录'
       }
     },
     {
@@ -30,7 +30,7 @@ var router = new Router({
           name: 'Detail',
           component: Detail,
           meta: {
-            title: RC.PAGE_TITLE._HOME
+            title: '探针检测奖励查询-主页'
           }
         },
         {
@@ -38,7 +38,7 @@ var router = new Router({
           name: 'Record',
           component: Record,
           meta: {
-            title: RC.PAGE_TITLE._HOME_RECORDS
+            title: '探针检测奖励查询-奖励记录'
           }
         }
       ]

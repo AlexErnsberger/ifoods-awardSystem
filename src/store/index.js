@@ -5,8 +5,12 @@ import {ROUTER_PATH} from '@/constant/routepath.js'
 
 Vue.use(Vuex)
 
-const vuexLocal = new VuexPersistence({
+const vuexSession = new VuexPersistence({
   storage: window.sessionStorage
+})
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage
 })
 
 export default new Vuex.Store({
@@ -59,5 +63,5 @@ export default new Vuex.Store({
     }
   },
   // 持久化
-  plugins: [vuexLocal.plugin]
+  plugins: [vuexSession.plugin]
 })
