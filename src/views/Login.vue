@@ -48,14 +48,12 @@
 </template>
 
 <script>
-import IdentifyCode from '@/components/Login/IdentifyCode.vue'
 import LoadingButton from '@/components/Base/LoadingButton.vue'
 import ErrorRemind from '@/components/Login/ErrorRemind.vue'
 import Input from '@/components/Login/Input.vue'
 import Mix from '@/mixins'
 export default {
   components: {
-    IdentifyCode,
     LoadingButton,
     ErrorRemind,
     Input
@@ -63,7 +61,6 @@ export default {
   mixins: [Mix],
   data () {
     return {
-      identifyCodes: '1234567890',
       identifyCode: '',
       userPhoneNum: null,
       password: null,
@@ -73,10 +70,6 @@ export default {
       loading: false,
       loginMsg: this.$t('login.loginbtn')
     }
-  },
-  mounted () {
-    this.identifyCode = ''
-    this.makeCode(this.identifyCodes, 4)
   },
   methods: {
     // 提交按钮
@@ -127,21 +120,6 @@ export default {
       })
     },
     /**
-     * 验证码生成
-     */
-    randomNum (min, max) {
-      return Math.floor(Math.random() * (max - min) + min)
-    },
-    refreshCode () {
-      this.identifyCode = ''
-      this.makeCode(this.identifyCodes, 4)
-    },
-    makeCode (o, l) {
-      for (let i = 0; i < l; i++) {
-        this.identifyCode += this.identifyCodes[this.randomNum(0, this.identifyCodes.length)]
-      }
-    },
-    /**
      * JS验证
      */
     testify () {
@@ -183,7 +161,7 @@ form {
   color: #fff;
   background-color: rgba(190, 190, 190, 0.5);
   padding: 50px 100px;
-  border-radius: 20px;
+  border-radius: 6px;
 }
 
 form fieldset legend {

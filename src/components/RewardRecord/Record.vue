@@ -4,7 +4,7 @@
   <template v-if="true">
     <div class="container">
       <table class="table  table-bordered table-hover" >
-        <thead class="thead-dark">
+        <thead>
           <tr>
             <th scope="col">{{$t('home.record.table.awardType')}}</th>
             <th scope="col">{{$t('home.record.table.awardTime')}}</th>
@@ -120,6 +120,24 @@ table{
   border-collapse: separate;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.12) 0 2px 6px, rgba(0, 0, 0, 0.24) 0 1px 2px;
+  background: #fff;
+  overflow: hidden;
+  thead{
+    tr{
+      th{
+        border: none;
+        text-align: center;
+      }
+    }
+  }
+  tbody{
+    tr{
+      td{
+        border: none;
+        text-align: center;
+      }
+    }
+  }
 }
 
 /* table thead {

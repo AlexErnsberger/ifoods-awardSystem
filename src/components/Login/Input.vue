@@ -44,21 +44,14 @@ export default {
       let value = event.target.value
       this.$emit('input', value)
       this.setCurrentValue(value)
-      this.$emit('on-change', event)
     },
     setCurrentValue (value) {
       if (this.currentValue === value) return
       this.currentValue = value
     },
     handleClear () {
-      const e = {
-        target: {
-          value: ''
-        }
-      }
       this.$emit('input', '')
       this.setCurrentValue('')
-      this.$emit('on-change', e)
     }
   }
 }
@@ -72,8 +65,7 @@ div {
 a {
   display: none;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0;right: 0;
   text-decoration: none;
   font-size: 0;
   border: 9px solid transparent;

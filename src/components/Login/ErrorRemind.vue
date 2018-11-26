@@ -22,7 +22,7 @@ div {
   display: none;
   text-align: center;
   background: #f2f2f2;
-  border-radius: 15px;
+  border-radius: 6px;
   padding: .3em 0;
 }
 

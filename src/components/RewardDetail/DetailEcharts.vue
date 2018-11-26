@@ -118,25 +118,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .chart-content {
   display: inline-block;
   width: 600px;height: 280px;
-  /* border: 1px solid #b6b6b6;
-  background-clip: border-box; */
 }
-
-/* @media only screen and (min-width:768px) {
-  #myChart {
-    width: 50rem;
-    height: 25rem;
-  }
-} */
-
-/* @media only screen and (max-width:768px) {
-  #myChart {
-    width: 34rem;
-    height: 24rem;
-  }
-} */
 </style>

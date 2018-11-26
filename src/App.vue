@@ -1,9 +1,7 @@
 <template>
-<div id="app">
+<div>
   <Header></Header>
-  <!-- <transition name="slide-fade" mode="out-in"> -->
-    <router-view />
-  <!-- </transition> -->
+  <router-view />
 </div>
 </template>
 
@@ -19,10 +17,5 @@ export default {
 }
 </script>
 
-<style scoped>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+<style lang="scss" scoped>
 </style>

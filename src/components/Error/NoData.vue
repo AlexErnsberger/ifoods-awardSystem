@@ -1,17 +1,17 @@
 <template>
-<div class="container text-center">
-  <section>
-    <div class="row">
-      <img src="@/assets/img/badrequest.png">
-      </div>
-      <div class="row">
-        <span>{{$t('home.error.msg')}}</span>
-      </div>
-      <div class="row">
-        <!-- <button class="btn btn-primary" @click="reGet">刷新</button> -->
-        <loading-button :loading="loading" :disabled="disabled" @click="reGet">{{$t('home.error.refresh')}}</loading-button>
-      </div>
-  </section>
+<div class="container">
+  <div class="home-error">
+    <div class="home-error-i">
+      <i class="iconfont icon-error"></i>
+    </div>
+    <div class="home-error-msg">
+      {{$t('home.error.msg')}}
+    </div>
+    <div class="home-error-btn">
+      <!-- <button class="btn btn-primary" @click="reGet">刷新</button> -->
+      <loading-button :loading="loading" :disabled="disabled" @click="reGet" style="width:120px;">{{$t('home.error.refresh')}}</loading-button>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -33,37 +33,24 @@ export default {
 }
 </script>
 
-<style scoped>
-img {
-  max-width: 100%;
-}
-
-.container {
-  padding: 40px 0;
-}
-
-section {
-  width: 30%;
-  margin: auto;
-  background: #f2f2f2;
-  padding: 2%;
-}
-
-.row {
-  padding: 25px 0 0 0;
-}
-
-.row img {
-  width: 50px;
-  height: 50px;
-}
-
-.row span {
-  font-size: 1.2em;
-  font-weight: 600;
-}
-
-.row button {
-  width: 30%;
+<style lang="scss" scoped>
+.home-error{
+  width: 300px;height: 200px;
+  margin: 120px auto;
+  background:#fff;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 2px 6px, rgba(0, 0, 0, 0.24) 0 1px 2px;
+  border-radius: 6px;
+  &-i, &-msg, &-btn{
+    text-align: center;
+  }
+  &-i{
+    i{
+      font-size: 5rem;
+    }
+  }
+  &-msg{
+    font-size: 1.6rem;
+    line-height: 4;
+  }
 }
 </style>

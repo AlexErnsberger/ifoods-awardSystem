@@ -1,9 +1,7 @@
 <template>
 <div id="ifoods-home-page">
   <sub-header @viewRecord="checkAwardRecord" @goHome="goAwardHome"></sub-header>
-  <!-- <transition name="slide-fade" mode="out-in"> -->
-    <router-view></router-view>
-  <!-- </transition> -->
+  <router-view></router-view>
 </div>
 </template>
 
@@ -26,6 +24,9 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+#ifoods-home-page{
+  // background: $common-bg-color;
+  // height: 700px;
+}
 </style>

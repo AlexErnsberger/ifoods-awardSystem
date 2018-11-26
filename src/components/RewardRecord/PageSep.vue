@@ -1,6 +1,6 @@
 <template>
 <nav>
-  <ul class="pagination ">
+  <ul class="pagination">
     <li :class="{'disabled': current == 1}"><a href="#" @click="setCurrent(current - 1)"> « </a></li>
     <li :class="{'disabled': current == 1}"><a href="#" @click="setCurrent(1)"> {{$t('home.record.sep.homePage')}} </a></li>
     <li v-for="(p,index) in grouplist" :class="{'active': current == p.val}" :key="index">
@@ -110,7 +110,7 @@ export default {
 .pagination {
   display: table;
   margin: 0 auto;
-  height: 3em;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 2px 6px, rgba(0, 0, 0, 0.24) 0 1px 2px;
 }
 
 .pagination li {
@@ -127,10 +127,9 @@ export default {
   padding: .4em .6em 0 .6em;
   height: 2em;
   text-align: center;
-  line-height: 2em;
   font-size: 1em;
   line-height: 1.2em;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .pagination li a:active {

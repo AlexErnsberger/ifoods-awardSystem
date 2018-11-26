@@ -6,8 +6,8 @@
       <div class="home-mining">
         <div class="mining-count home-module">
           <div class="home-module-title">{{$t('home.detail.todayPoolMoney')}}</div>
-            <div class="mining-count-image">
-              <img src="@/assets/img/map.png">
+          <div class="mining-count-image">
+            <img src="@/assets/img/map.png">
             </div>
             <div class="mining-count-data">
               <span class="mining-count-data-number">1000000</span>
@@ -154,7 +154,8 @@ export default {
 
   .mining-count {
     float: left;
-    width: 435px;height: 360px;
+    width: 435px;
+    height: 360px;
 
     &-image {
       img {
@@ -179,53 +180,50 @@ export default {
 
   .mining-award {
     float: right;
-    width: 685px; height: 360px;
+    width: 685px;
+    height: 360px;
 
     &-chart {
       text-align: center;
     }
   }
 }
-</style>
-
-<style lang="scss" scoped>
-.home-award{
+</style><style lang="scss" scoped>
+.home-award {
   margin-top: 20px;
   @include clearfix;
 
   &-module {
     float: left;
-    width: 270px; height: 180px;
+    width: 270px;
+    height: 180px;
+
     &+& {
       margin-left: 20px;
     }
   }
 
   &-data {
-    margin-top:10px;
-    font-size: 1.8rem;
+    margin-top: 10px;
+    font-size: 1.6rem;
     line-height: 1.5;
   }
 
-  &-unit{
+  &-unit {
     font-size: .9rem;
     padding: 0 1rem;
   }
 }
-</style>
-
-<style scoped>
-.home-module{
+</style><style scoped>
+.home-module {
   background: #fff;
   border-radius: 6px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.12) 0 2px 6px, rgba(0, 0, 0, 0.24) 0 1px 2px;
 }
 
-.home-module-title{
+.home-module-title {
   font-size: 2rem;
   padding: 1rem 0;
 }
 </style>
-
-

@@ -33,7 +33,7 @@ export default {
 
 <style scoped>
 .show {
-  display: inline
+  display: inline;
 }
 
 button {

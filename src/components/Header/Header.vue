@@ -54,7 +54,7 @@ export default {
   font-size: 2rem;
   height: 80px;
   padding-top: 20px;
-  background: $header-bg-color;
+  background: #fff;
   color: $header-font-color;
 
   .header-logo {
