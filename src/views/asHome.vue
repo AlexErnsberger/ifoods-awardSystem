@@ -10,16 +10,22 @@
       </div>
     </sub-header>
     <detail></detail>
+    <loading-page v-if="$store.getters.getLoading"></loading-page>
   </div>
 </template>
 
 <script>
-import SubHeader from '@/components/Header/SubHeader.vue'
-import Detail from '@/components/Home/Detail.vue'
+import SubHeader from '@/components/Header/SubHeader'
+import Detail from '@/components/Home/Detail'
+import LoadingPage from '@/components/Base/LoadingPage'
 export default {
   components: {
     SubHeader,
-    Detail
+    Detail,
+    LoadingPage
+  },
+  mounted () {
+    this.$store.commit('setLoading', true)
   },
   methods: {
     checkAwardRecord () {

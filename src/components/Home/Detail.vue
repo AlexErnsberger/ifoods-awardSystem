@@ -60,7 +60,7 @@
               <span class="home-award-unit">{{$t('unit')}}</span>
             </div>
           </div>
-          <template v-if='rewardInfo.isPartner'>
+          <template v-if='rewardInfo&&rewardInfo.isPartner'>
             <div class="home-module home-award-module ">
               <div class="home-module-title">{{$t('homeDetail.ystdPartnerAward')}}</div>
               <div class="home-award-data">
@@ -103,19 +103,17 @@ export default {
     }
   },
   mounted () {
-    this.getRewardInfo()
-    this.getDailyReward()
+    this._http.checkReqDone(this, () => { this.$store.commit('setLoading', false) }, [this.getRewardInfo(), this.getDailyReward()])
   },
   methods: {
     getRewardInfo () {
-      this._http.getRewardInfo(this, (res) => {
+      return this._http.getRewardInfo(this, (res) => {
         let data = res.data
         this.$store.commit('setRewardInfo', data.data)
-        this.$store.state.loading = false
       })
     },
     getDailyReward () {
-      this._http.getDailyReward(this, (res) => {
+      return this._http.getDailyReward(this, (res) => {
         let data = res.data
         if (res.data.data.length > 0) {
           this.graphicData = data.data

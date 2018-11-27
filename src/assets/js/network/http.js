@@ -1,8 +1,9 @@
-import axios from '@/assets/js/network/axios'
+import axiosInstance from '@/assets/js/network/axios'
+import Axios from 'axios'
 import Is from 'is_js'
 
 let pullRequest = function (scope, url, params, success, fail) {
-  return axios.post(url, params).then((res) => {
+  return axiosInstance.post(url, params).then((res) => {
     let data = res.data
     if (data.code === '0000' && data.msg === 'SUCCESS') {
       if (Is.function(success)) {
@@ -14,6 +15,16 @@ let pullRequest = function (scope, url, params, success, fail) {
       }
     }
   }).catch((e) => {
+    console.log(e)
+  })
+}
+
+let allDone = function (scope, success, req) {
+  return Axios.all(req).then(Axios.spread(() => {
+    if (Is.function(success)) {
+      success.call(scope)
+    }
+  })).catch((e) => {
     console.log(e)
   })
 }
@@ -43,6 +54,11 @@ let getAllRewards = function (scope, params, success, fail) {
   return pullRequest(scope, '/reward/time', params, success, fail)
 }
 
+// 检查所有请求是否请求完毕
+let checkReqDone = function (scope, success, req) {
+  return allDone(scope, success, req)
+}
+
 export default {
-  login, logout, getRewardInfo, getDailyReward, getAllRewards
+  login, logout, getRewardInfo, getDailyReward, getAllRewards, checkReqDone
 }

@@ -57,6 +57,7 @@ export default {
         let data = res.data
         this.rewardRecords = data.data.list
         this.total = data.data.totalNum
+        this.$store.commit('setLoading', false)
       })
     },
     pagechange (currentPage) {

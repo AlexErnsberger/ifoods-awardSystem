@@ -86,7 +86,6 @@ export default {
         this.$store.commit('setToken', res.headers.ifession)
         // 路由跳转
         this.loading = false
-        this.$store.commit('setLogin', true)
         this.$router.push({name: 'home'})
       }, (res) => {
         this.errorMsg = res.data.msg

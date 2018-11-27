@@ -21,14 +21,20 @@ export default new Vuex.Store({
     loading: false
   },
   getters: {
-    getLanguage (state) {
-      return state.language
+    getUserInfo (state) {
+      return state.userInfo
+    },
+    getToken (state) {
+      return state.token
     },
     getRewardInfo (state) {
       return state.rewardInfo
     },
-    getToken (state) {
-      return state.token
+    getLanguage (state) {
+      return state.language
+    },
+    getLoading (state) {
+      return state.loading
     }
   },
   mutations: {
@@ -46,6 +52,12 @@ export default new Vuex.Store({
     },
     setRewardInfo (state, data) {
       state.rewardInfo = data
+    },
+    setLanguage (state, data) {
+      state.language = data
+    },
+    setLoading (state, data) {
+      state.loading = data
     }
   },
   // 持久化
