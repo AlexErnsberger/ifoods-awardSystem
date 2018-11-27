@@ -1,7 +1,7 @@
 <template>
 <div id="ifood-home">
   <!-- <transition name="slide-fade" mode="out-in"> -->
-  <template v-if="rewardInfo">
+  <template v-if="$store.state.loading || rewardInfo ">
     <div class="container">
       <div class="home-mining">
         <div class="mining-count home-module">
@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import DetailEcharts from './DetailEcharts.vue'
+import DetailEcharts from '@/components/Home/DetailEcharts.vue'
 import NoData from '@/components/Error/NoData.vue'
 export default {
   components: {

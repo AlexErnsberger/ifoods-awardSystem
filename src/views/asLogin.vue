@@ -87,7 +87,7 @@ export default {
         // 路由跳转
         this.loading = false
         this.$store.commit('setLogin', true)
-        this.$router.push(this._RC._HOME_DEFAULT)
+        this.$router.push({name: 'home'})
       }, (res) => {
         this.errorMsg = res.data.msg
         this.identifyCode = ''

@@ -5,7 +5,7 @@
       <img src="../../assets/img/logo.png">
       <span>{{$t('header.title')}}</span>
     </div>
-    <template v-if="isLogin">
+    <template v-if="token">
       <div class="header-nav">
         <div class="nav-user dropdown">
           <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -29,7 +29,7 @@ export default {
     logout () {
       this._http.logout(this, (res) => {
         this.$store.commit('setUserInfo', null)
-        this.$router.push(this._RC._ROOT)
+        this.$router.push({name: 'login'})
       })
     }
   },
@@ -37,8 +37,8 @@ export default {
     userInfo () {
       return this.$store.state.userInfo
     },
-    isLogin () {
-      return this.$store.getters.isLogin
+    token () {
+      return this.$store.getters.getToken
     }
   }
 }

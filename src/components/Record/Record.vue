@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import PageSep from './PageSep.vue'
+import PageSep from '@/components/Record/PageSep.vue'
 import NoData from '@/components/Error/NoData.vue'
 export default {
   components: {
@@ -133,9 +133,4 @@ table{
     }
   }
 }
-
-/* table thead {
-  color: #fff;
-  background-color: #666;
-} */
 </style>
