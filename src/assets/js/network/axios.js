@@ -1,9 +1,9 @@
-import axios from 'axios'
+import Axios from 'axios'
 import Api from '../../../../static/config.js'
 import Qs from 'qs'
 import store from '@/store'
 
-let instance = axios.create({
+let instance = Axios.create({
   method: 'post',
   baseURL: Api.baseUrl,
   headers: {
@@ -46,9 +46,9 @@ instance.interceptors.response.use(undefined, function axiosRetryInterceptor (er
       resolve()
     }, config.retryDelay || 1)
   })
-  // Return the promise in which recalls axios to retry the request
+  // Return the promise in which recalls Axios to retry the request
   return backoff.then(function () {
-    return axios(config)
+    return Axios(config)
   })
 })
 
